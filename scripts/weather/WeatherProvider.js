@@ -1,17 +1,20 @@
 import { settings } from "../Settings.js"
 
 let fiveDayForecast = []
-let forecast = 5
 
 export const useWeather = () => fiveDayForecast.slice()
 
 export const getWeather = (zipCode) => {
     let zip = zipCode
-    return fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&cnt=${forecast}&appid=${settings.weatherKey}`)
+    let myKey = settings.weatherKey
+    console.log(myKey)
+    console.log(zipCode)
+    return fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&cnt=5&appid=${myKey}`)
         .then(response => response.json())
         .then(
             currentWeatherData => {
-                fiveDayForecast = currentWeatherData
+                fiveDayForecast = currentWeatherData.list
+                console.log(fiveDayForecast)
             }
         )
 }

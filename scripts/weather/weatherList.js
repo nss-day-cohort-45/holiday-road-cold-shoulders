@@ -28,6 +28,6 @@ export const weatherList = (zipCode) => {
 
 eventHub.addEventListener("parkId", e => {
     console.log('I heard the event!')
-    let zipCode = e.postalCode.value
-    weatherList(zipCode)
+    let zipCode = e.detail.postalCode.split(',')
+    weatherList(zipCode[0])
 });
