@@ -1,29 +1,57 @@
+let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+let day = ''
+
 export const weatherCardHTML = (weatherObj) => {
     
-    console.log(dates(new Date(2017, 1, 27)));
+    let today = getDates()
     
+    console.log(today)
+
+    
+    switch (today) {
+        case 0:
+          day = "Sunday";
+          today++
+          break;
+        case 1:
+          day = "Monday";
+          today++
+          break;
+        case 2:
+           day = "Tuesday";
+           today++
+          break;
+        case 3:
+          day = "Wednesday";
+          today++
+          break;
+        case 4:
+          day = "Thursday";
+          today++
+          break;
+        case 5:
+          day = "Friday";
+          today++
+          break;
+        case 6:
+          day = "Saturday";
+          today++
+      }
+
+
     return `
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">${weatherObj.main.temp}</h5>
-                        <p class="card-text">${weatherObj.weather[0].main} This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">${day}</h5>
+                        <p class="card-text">${weatherObj.main.temp} </p>
+                        <p class="card-text"><small class="text-muted">${weatherObj.weather[0].main}</small></p>
                     </div>
                 </div>    
     `
 }
 
-function dates(current) {
-    var week= new Array(); 
-    // Starting Monday not Sunday
-    current.setDate((current.getDate() - current.getDay() +1));
-    for (var i = 0; i < 7; i++) {
-        week.push(
-            new Date(current)
-        ); 
-        current.setDate(current.getDate() +1);
-    }
-    return week; 
+const getDates = () => {
+    let day = new Date();
+    let dayNum = day.getDay()
+    return dayNum
 }
-
-const getDates = ()
