@@ -12,8 +12,15 @@ const contentTarget = document.querySelector(".attraction-card")
 
 // Listen for a "click" event within the eventHub
 eventHub.addEventListener("click", event => {
+    // Proceed if the click event occured within the div with the attraction-card class
     if (event.target.id === "some id") {
+        const customEvent = new CustomEvent("attractionChosen", {
+            detail: {
+                attractionThatWasChosen: event.target.value
+            }
+        })
 
+        eventHub.dispatchEvent(customEvent)
     }
 })
 
