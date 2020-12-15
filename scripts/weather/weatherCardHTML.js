@@ -53,21 +53,35 @@ export const weatherCardHTML = (weatherObj) => {
                         <center>
                           <h3 class="card-title">${day}</h3>
                           <p class="card-text"><h1> ${Math.floor(weatherObj.main.temp)}\u00B0</h1></p>
-                          <p class="card-text"><small class="text-muted">High: ${Math.floor(weatherObj.main.temp_max)}\u00B0 Low: ${Math.floor(weatherObj.main.temp_min)}\u00B0</small></p>
+                          <p class="card-text"><small class="text-muted">High:&nbsp;${Math.floor(weatherObj.main.temp_max)}\u00B0 Low:&nbsp;${Math.floor(weatherObj.main.temp_min)}\u00B0</small></p>
                           <img class="weatherIcon" src="http://openweathermap.org/img/wn/${weatherObj.weather[0].icon}@2x.png" alt="">
                           <p class="card-text">${weatherObj.weather[0].description}</p>
-                          <p class="card-text"><small class="text-muted">Precipitation: ${weatherObj.pop}%</small></p>
-                          <p><button type="button" class="btn btn-outline-secondary" id="weatherDetails--${day}">details</button></p>
+                          <p class="card-text"><small class="text-muted">Precip: ${weatherObj.pop}%</small></p>
                         </center>
                     </div>
                 </div>    
     `
 }
 
-eventHub.addEventListener('click', clickEvent => {
-    
-    if (clickEvent.target.id === ) {
-      console.log('yep')
-    }
 
-})
+
+const contentTarget = document.querySelector(".dropdown-container");
+
+eventHub.addEventListener("parkId", (e) => {
+  const parks = useParks();
+  const matchingPark = parks.find((park) => park.id === e.detail.id);
+  console.log(matchingPark)
+});
+
+contentTarget.addEventListener("click", (e) => {
+  if (e.target.id.startsWith("park--")) {
+    const [prefix, parkId, states] = e.target.id.split("--");
+    const customEvent = new CustomEvent("parkId", {
+      detail: {
+        id: parkId,
+        states,
+      },
+    });
+    eventHub.dispatchEvent(customEvent);
+  }
+});
