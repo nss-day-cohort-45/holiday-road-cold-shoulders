@@ -1,3 +1,5 @@
+const eventHub = document.querySelector('.container')
+
 // Initialize day for the switch statement
 let day = ''
 
@@ -55,8 +57,17 @@ export const weatherCardHTML = (weatherObj) => {
                           <img class="weatherIcon" src="http://openweathermap.org/img/wn/${weatherObj.weather[0].icon}@2x.png" alt="">
                           <p class="card-text">${weatherObj.weather[0].description}</p>
                           <p class="card-text"><small class="text-muted">Precipitation: ${weatherObj.pop}%</small></p>
+                          <p><button type="button" class="btn btn-outline-secondary" id="weatherDetails--${day}">details</button></p>
                         </center>
                     </div>
                 </div>    
     `
 }
+
+eventHub.addEventListener('click', clickEvent => {
+    
+    if (clickEvent.target.id === ) {
+      console.log('yep')
+    }
+
+})
