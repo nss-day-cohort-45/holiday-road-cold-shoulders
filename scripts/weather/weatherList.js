@@ -5,11 +5,12 @@ import { getWeather, useWeather } from "./WeatherProvider.js"
 // const eventHub = document.querySelector('.container')
 
 
-// Put the weather content in the itenerary-preview container
-const weatherContent = document.querySelector('.itinerary-preview')
+// Put the weather content in the weather-card container
+const weatherContent = document.querySelector('.weather-card')
 
+// Get the weather cards on the DOM
 const render = (weatherToDOM) => {
-    weatherContent.innerHTML = "Test"
+    weatherContent.innerHTML = ``
 
     for (const weatherObj of weatherToDOM) {
         const weatherHTML = weatherCardHTML(weatherObj)
@@ -17,6 +18,7 @@ const render = (weatherToDOM) => {
     }
 }
 
+// Get the current weather
 export const weatherList = () => {
     getWeather().then(() => {
         const weatherForecast = useWeather()

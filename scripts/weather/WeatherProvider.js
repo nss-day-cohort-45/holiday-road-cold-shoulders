@@ -1,7 +1,6 @@
 import { settings } from "../Settings.js"
 
 let fiveDayForecast = []
-let cityName = []
 
 export const useWeather = () => fiveDayForecast.slice()
 
