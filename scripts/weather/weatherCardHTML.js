@@ -4,12 +4,10 @@ const eventHub = document.querySelector('.container')
 let day = ''
 
 // Get todays date
-let date = new Date()
+let date = new Date();
 
 // Convert the date into a number for the switch statement
 let dayNum = date.getDay()
-
-
 
 // Generate HTML for the weather cards by passing in an object
 export const weatherCardHTML = (weatherObj) => {

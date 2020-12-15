@@ -10,24 +10,28 @@ const weatherContent = document.querySelector('.weather-card')
 
 // Get the weather cards on the DOM
 const render = (weatherToDOM) => {
+    // Clear the DOM
     weatherContent.innerHTML = ``
 
+    // For each weather object of the weatherToDOM array
     for (const weatherObj of weatherToDOM) {
+        // Convert the data to HTML
         const weatherHTML = weatherCardHTML(weatherObj)
+        // Add each card to the DOM
         weatherContent.innerHTML += weatherHTML
     }
 }
 
-// Get the current weather
-export const weatherList = (zipCode) => {
-    getWeather(zipCode).then(() => {
+// A park was chosen
+eventHub.addEventListener("parkId", e => {
+
+    // Grab the zipcode from the customEvent object and split it since more than one is passed
+    let zipCode = e.detail.postalCode.split(',')
+    
+    // Populate the weather cards in the DOM
+    getWeather(zipCode[0]).then(() => {
         const weatherForecast = useWeather()
         render(weatherForecast)
     })
-}
-
-eventHub.addEventListener("parkId", e => {
-    console.log('I heard the event!')
-    let zipCode = e.detail.postalCode.split(',')
-    weatherList(zipCode[0])
+    
 });
