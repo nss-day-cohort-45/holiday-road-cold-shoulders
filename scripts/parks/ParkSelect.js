@@ -24,7 +24,8 @@ export const parkSelect = () => {
 };
 
 const render = (parksCollection) => {
-  contentTarget.innerHTML = `
+  console.log("parks renders")
+  contentTarget.innerHTML += `
   <div class="dropdown" id="parkSelect">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
     Select Park...
