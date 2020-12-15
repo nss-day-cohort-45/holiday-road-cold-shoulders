@@ -5,7 +5,9 @@ const contentTarget = document.querySelector(".dropdown-container");
 
 contentTarget.addEventListener("click", (e) => {
   if (e.target.id.startsWith("park--")) {
+
     const [prefix, parkId, states, postalCode] = e.target.id.split("--");
+
     const customEvent = new CustomEvent("parkId", {
       detail: {
         id: parkId,
