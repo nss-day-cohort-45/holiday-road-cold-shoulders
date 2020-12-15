@@ -1,9 +1,10 @@
-let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+// let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 let day = ''
+
 
 export const weatherCardHTML = (weatherObj) => {
     
-    let today = getDates()
+  let today = getDates()
     
     console.log(today)
 
@@ -11,11 +12,9 @@ export const weatherCardHTML = (weatherObj) => {
     switch (today) {
         case 0:
           day = "Sunday";
-          today++
           break;
         case 1:
           day = "Monday";
-          today++
           break;
         case 2:
            day = "Tuesday";
@@ -23,19 +22,15 @@ export const weatherCardHTML = (weatherObj) => {
           break;
         case 3:
           day = "Wednesday";
-          today++
           break;
         case 4:
           day = "Thursday";
-          today++
           break;
         case 5:
           day = "Friday";
-          today++
           break;
         case 6:
           day = "Saturday";
-          today++
       }
 
 
