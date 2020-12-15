@@ -62,26 +62,3 @@ export const weatherCardHTML = (weatherObj) => {
                 </div>    
     `
 }
-
-
-
-const contentTarget = document.querySelector(".dropdown-container");
-
-eventHub.addEventListener("parkId", (e) => {
-  const parks = useParks();
-  const matchingPark = parks.find((park) => park.id === e.detail.id);
-  console.log(matchingPark)
-});
-
-contentTarget.addEventListener("click", (e) => {
-  if (e.target.id.startsWith("park--")) {
-    const [prefix, parkId, states] = e.target.id.split("--");
-    const customEvent = new CustomEvent("parkId", {
-      detail: {
-        id: parkId,
-        states,
-      },
-    });
-    eventHub.dispatchEvent(customEvent);
-  }
-});

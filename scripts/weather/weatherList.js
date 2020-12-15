@@ -2,7 +2,7 @@ import { weatherCardHTML } from "./weatherCardHTML.js"
 import { getWeather, useWeather } from "./WeatherProvider.js"
 
 // eventHub setup on the container
-// const eventHub = document.querySelector('.container')
+const eventHub = document.querySelector('.container')
 
 
 // Put the weather content in the weather-card container
@@ -19,9 +19,14 @@ const render = (weatherToDOM) => {
 }
 
 // Get the current weather
-export const weatherList = () => {
-    getWeather().then(() => {
+export const weatherList = (zipCode) => {
+    getWeather(zipCode).then(() => {
         const weatherForecast = useWeather()
         render(weatherForecast)
     })
 }
+
+eventHub.addEventListener("parkId", (e) => {
+    let zipCode = e.postalCode.value
+    weatherList(zipCode)
+});
