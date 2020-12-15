@@ -3,8 +3,6 @@
 let parks = [];
 
 export const useParks = () => parks.slice();
-console.log(useParks())
-
 
 // Fetch call from NPS API of all parks This will only pull 50 at a time.
 

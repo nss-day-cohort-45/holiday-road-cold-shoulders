@@ -1,3 +1,4 @@
-import { parksList } from "./parks/ParkCard.js";
+import "./parks/ParkCard.js";
+import { parkSelect } from "./parks/ParkSelect.js";
 
-parksList();
+parkSelect();

@@ -1,7 +1,15 @@
 import { parkHTML } from "./ParkHTML.js";
 import { getParks, useParks } from "./ParkProvider.js";
 
-const parkCardElement =  document.querySelector(".park-card")
+const eventHub = document.querySelector(".container");
+// const parkCardElement = document.querySelector(".park-card");
+const parkCardElement = document.querySelector(".itinerary-preview");
+
+eventHub.addEventListener("parkId", (e) => {
+  const parks = useParks();
+  const matchingPark = parks.find((park) => park.id === e.detail.id);
+  render(matchingPark);
+});
 
 export const parksList = () => {
   getParks().then(() => {
@@ -10,10 +18,8 @@ export const parksList = () => {
   });
 };
 
-const render = (parks) => {
-  let parkCards = [];
-  for (const park of parks) {
-    parkCards.push(parkHTML(park));
-  }
-  parkCardElement.innerHTML = parkCards.join("");
+const render = (park) => {
+  parkCardElement.innerHTML = parkHTML(park);
 };
+
+// TODO need to create default 
