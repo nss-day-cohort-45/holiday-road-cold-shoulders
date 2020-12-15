@@ -13,10 +13,12 @@ const contentTarget = document.querySelector(".attraction-card")
 // Listen for a "click" event within the eventHub
 eventHub.addEventListener("click", event => {
     // Proceed if the click event occured within the div with the attraction-card class
-    if (event.target.id === "some id") {
+    
+    if (event.target.id.startsWith("attraction")) {
+        const [prefix, suffix] = event.target.id.split("--")
         const customEvent = new CustomEvent("attractionChosen", {
             detail: {
-                attractionThatWasChosen: event.target.value
+                attractionThatWasChosen: suffix
             }
         })
 
@@ -28,13 +30,14 @@ eventHub.addEventListener("click", event => {
 const render = (attractionCollection) => {
     contentTarget.innerHTML = `
         <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    Please Select an Attraction:
-                </button>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Please Select an Attraction:
+            </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                ${attractionCollection.map(
+                    (attraction) => `
+                <li><a class="dropdown-item" href="#" id="attraction--${attraction.id}">${attraction.name}</a></li>`
+                )}
             </ul>
         </div>
     `

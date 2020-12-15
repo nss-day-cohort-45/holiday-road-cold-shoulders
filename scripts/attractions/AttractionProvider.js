@@ -5,7 +5,7 @@ export const useAttractions = () => {
 }
 
 export const getAttractions = () => {
-    return fetch ("https://holidayroad.nss.team.bizarreries")
+    return fetch ("http://holidayroad.nss.team/bizarreries")
     .then(response => response.json())
     .then(
         parsedAttractions => {
