@@ -5,10 +5,11 @@ const contentTarget = document.querySelector(".dropdown-container");
 
 contentTarget.addEventListener("click", (e) => {
   if (e.target.id.startsWith("park--")) {
-    const [prefix, parkId] = e.target.id.split("--");
+    const [prefix, parkId, states] = e.target.id.split("--");
     const customEvent = new CustomEvent("parkId", {
       detail: {
         id: parkId,
+        states,
       },
     });
     eventHub.dispatchEvent(customEvent);
@@ -31,7 +32,7 @@ const render = (parksCollection) => {
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       ${parksCollection.map(
         (park) => `
-      <li><a class="dropdown-item" href="#" id="park--${park.id}">${park.name}</a></li>`
+      <li><a class="dropdown-item" href="#" id="park--${park.id}--${park.states}">${park.name}</a></li>`
       )}
     </ul>
   </div>
