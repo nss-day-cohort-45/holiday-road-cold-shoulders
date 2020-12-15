@@ -38,7 +38,7 @@ const render = (attractionCollection) => {
                 ${attractionCollection.map(
                     (attraction) => `
                 <li><a class="dropdown-item" href="#" id="attraction--${attraction.id}--${attraction.state}">${attraction.name}</a></li>`
-                )}
+                ).join(" ")}
             </ul>
         </div>
     `
