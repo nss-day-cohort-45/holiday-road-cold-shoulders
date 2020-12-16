@@ -5,9 +5,7 @@ const contentTarget = document.querySelector(".dropdown-container");
 
 contentTarget.addEventListener("click", (e) => {
   if (e.target.id.startsWith("park--")) {
-
     const [prefix, parkId, states, postalCode] = e.target.id.split("--");
-
     const customEvent = new CustomEvent("parkId", {
       detail: {
         id: parkId,
@@ -27,9 +25,8 @@ export const parkSelect = () => {
 };
 
 const render = (parksCollection) => {
-  console.log("parks renders")
   contentTarget.innerHTML += `
-  <div class="dropdown" id="parkSelect">
+  <div class="dropdown parkSelect">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
     Select Park...
     </button>
