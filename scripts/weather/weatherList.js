@@ -13,25 +13,36 @@ const render = (weatherToDOM) => {
     // Clear the DOM
     weatherContent.innerHTML = ``
 
+    // Get todays date
+    let date = new Date();
+
+    // Convert the date into a number for the switch statement in weatherCardHTML.js
+    let todayNum = date.getDay()
+
     // For each weather object of the weatherToDOM array
     for (const weatherObj of weatherToDOM) {
-        // Convert the data to HTML
-        const weatherHTML = weatherCardHTML(weatherObj)
+        // Send teh data off for HTML conversion and pass in the day number
+        const weatherHTML = weatherCardHTML(weatherObj, todayNum)
+
+        // Increase the number so each day in the forecast gets the proper name. Ex: "Fri"
+        todayNum++
+
         // Add each card to the DOM
         weatherContent.innerHTML += weatherHTML
     }
 }
 
-// A park was chosen
+// A park was selected on the dropdown so let's get a forecast for it
 eventHub.addEventListener("parkId", e => {
 
     // Grab the zipcode from the customEvent object and split it since more than one is passed
     let zipCode = e.detail.postalCode.split(',')
     
-    // Populate the weather cards in the DOM
+    // Send the zipcode into the getWeather function
     getWeather(zipCode[0]).then(() => {
+        // Snag the latest data
         const weatherForecast = useWeather()
+        // Send it to the DOM
         render(weatherForecast)
     })
-    
 });

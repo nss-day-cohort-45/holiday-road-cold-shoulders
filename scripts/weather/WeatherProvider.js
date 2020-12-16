@@ -1,9 +1,12 @@
 import { settings } from "../Settings.js"
 
+// Set up the initial array for weather data
 let fiveDayForecast = []
 
+// Get a copy of the array to use elsewhere
 export const useWeather = () => fiveDayForecast.slice()
 
+// Hit the API to get current weather data
 export const getWeather = (zipCode) => {
     // Use the Open Weather Map API key
     let myKey = settings.weatherKey
