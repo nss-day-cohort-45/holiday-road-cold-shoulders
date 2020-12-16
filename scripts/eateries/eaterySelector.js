@@ -22,7 +22,7 @@ eventHub.addEventListener("click", event => {
 
 const render = eateryCollection => {
     contentTarget.innerHTML += `
-    <div class="dropdown">
+    <div class="dropdown eaterySelect">
  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
     Select An Eatery
   </button>

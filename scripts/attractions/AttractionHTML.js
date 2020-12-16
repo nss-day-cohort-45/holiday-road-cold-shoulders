@@ -7,7 +7,6 @@ export const AttractionHTML = (attractionObj) => {
         <div class="card-body">
             <h5 class="card-title">${attractionObj.name}</h5>
             <p class="card-text">${attractionObj.description}</p>
-            <a href="#" class="btn btn-primary">Details</a>
         </div>
     </div>
     `
