@@ -6,8 +6,9 @@ const eventHub = document.querySelector(".container");
 
 eventHub.addEventListener("eateryChosen", (event) => {
   const allEateries = useEateries();
+  const eaterySelected = parseInt(event.detail.eateryThatWasChosen)
   const matchingEatery = allEateries.find(
-    (eatery) => eatery.id === event.detail.eateryThatWasChosen
+    (eatery) => eatery.id === eaterySelected
   );
   console.log("match", matchingEatery);
   render(matchingEatery);
