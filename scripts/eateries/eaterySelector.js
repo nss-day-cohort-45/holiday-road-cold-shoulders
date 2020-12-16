@@ -11,8 +11,8 @@ eventHub.addEventListener("click", event => {
     const [prefix, eateryId, state] = event.target.id.split("--")
     const customEvent = new CustomEvent("eateryChosen", {
           detail: {
-              eateryThatWasChosen: state,
-              eateryId
+              eateryThatWasChosen: eateryId,
+              state
           }
       })
 
@@ -36,7 +36,7 @@ ${
       let eateryPlace = eateryObj.businessName
       let eateryState = eateryObj.state
       let eateryID = eateryObj.id
-        return `<li><a class="dropdown-item id="eatery--${eateryID}--${eateryState}">${eateryPlace} ${eateryState}</a></li> `
+        return `<li><a class="dropdown-item" id="eatery--${eateryID}--${eateryState}">${eateryPlace} ${eateryState}</a></li> `
     }).join("")
       
 }
