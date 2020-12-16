@@ -25,7 +25,12 @@ const render = (weatherToDOM) => {
         const weatherHTML = weatherCardHTML(weatherObj, todayNum)
 
         // Increase the number so each day in the forecast gets the proper name. Ex: "Fri"
-        todayNum++
+        if (todayNum < 6) {
+            todayNum++
+        // Once we get to Saturday we need to reset the count
+        } else if (todayNum = 6) {
+            todayNum = 0;
+        }
 
         // Add each card to the DOM
         weatherContent.innerHTML += weatherHTML
@@ -37,7 +42,8 @@ eventHub.addEventListener("parkId", e => {
 
     // Grab the zipcode from the customEvent object and split it since more than one is passed
     let zipCode = e.detail.postalCode.split(',')
-    
+    let states = e.detail.states
+    console.log(states)
     // Send the zipcode into the getWeather function
     getWeather(zipCode[0]).then(() => {
         // Snag the latest data
