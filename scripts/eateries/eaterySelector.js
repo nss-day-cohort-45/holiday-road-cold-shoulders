@@ -1,9 +1,8 @@
 import { useEateries, getEateries } from "./EateryProvider.js";
 
 const contentTarget = document.querySelector(".dropdown-container");
-const dropdownTarget = document.querySelector(".eatery-dropdown")
+const dropdownTarget = document.querySelector(".eatery-dropdown");
 const eventHub = document.querySelector(".container");
-
 
 eventHub.addEventListener("click", (event) => {
   console.log("event", event.target.state);
@@ -44,24 +43,18 @@ ${eateryCollection
 </div>`;
 };
 
-const renderDropdown = (filteredDropdown) => {
-  dropdownTarget.innerHTML = `<li><a class="dropdown-item" id="eatery--${eateryID}--${eateryState}">${eateryPlace} ${eateryState}</a></li> `;
-  }
 
 
 eventHub.addEventListener("parkId", (e) => {
-  
   let state = e.detail.states;
-  
+
   getEateries(state).then(() => {
-    
     const eateries = useEateries();
     eateries.find((state) => {
       if (state === eateries.state) {
       }
       renderDropdown(eateries);
     });
-    
   });
 });
 

@@ -15,3 +15,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 /* .weatherCard {
     border: black solid 2px;
 } */
+
+/* limits height of dropdown to not be longer than the page. */
+.dropdown-menu {
+    overflow-y: auto;
+    height: 20em;
+}
+
+/* image slideshow styling so fit images as all same height */
+.splide__slide__container > img {
+    height: 100%;
+    border: black 1px solid;
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+}
+
+.parkSelect {
+    order: -1;
+}
+
+.attractionSelect {
+    order: 0;
+}
+
+.eaterySelect {
+    order: 1;
+}
