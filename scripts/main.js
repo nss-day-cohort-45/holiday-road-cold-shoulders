@@ -1,10 +1,10 @@
-import "./parks/ParkCard.js";
 import { parkSelect } from "./parks/ParkSelect.js";
-import { eateryList } from "./eateries/eateryList.js";
+import { eaterySelect } from "./eateries/eaterySelector.js"
 import { AttractionSelect } from "./attractions/AttractionSelect.js";
-import { weatherList } from "./weather/weatherList.js";
+import "./parks/ParkCard.js";
+import "./weather/weatherList.js";
+import "./eateries/eateryList.js";
 
 parkSelect();
 AttractionSelect();
-eateryList();
-weatherList();
+eaterySelect()
