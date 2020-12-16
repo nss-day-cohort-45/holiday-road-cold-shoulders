@@ -37,13 +37,17 @@ const render = (weatherToDOM) => {
     }
 }
 
+
+//---------------------------------------------------------------------------//
+//  IF YOU'RE CLICKING A TON OF PARKS FOR TESTING COMMENT THIS LISTENER OUT! //
+//---------------------------------------------------------------------------//
+
 // A park was selected on the dropdown so let's get a forecast for it
 eventHub.addEventListener("parkId", e => {
 
     // Grab the zipcode from the customEvent object and split it since more than one is passed
     let zipCode = e.detail.postalCode.split(',')
-    let states = e.detail.states
-    console.log(states)
+    
     // Send the zipcode into the getWeather function
     getWeather(zipCode[0]).then(() => {
         // Snag the latest data
