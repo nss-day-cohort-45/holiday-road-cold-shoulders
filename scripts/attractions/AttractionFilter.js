@@ -7,7 +7,6 @@ eventHub.addEventListener("parkId", event => {
     const stateCode = event.detail.states
     const attractions = useAttractions()
     const filteredAttraction = attractions.find(attractionObj => {
-        console.log("attractionObj.state: ",attractionObj.state)
         if (attractionObj.state === stateCode){
             return attractionObj
         }
