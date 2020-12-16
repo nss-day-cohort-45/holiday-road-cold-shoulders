@@ -6,6 +6,7 @@ import "./attractions/AttractionCard.js"
 import "./attractions/AttractionFilter.js"
 import "./weather/weatherList.js";
 import "./eateries/eateryList.js";
+import "./eateries/eateryFilter.js"
 
 parkSelect();
 AttractionSelect();
