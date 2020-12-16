@@ -5,7 +5,7 @@ const dropdownTarget = document.querySelector(".eatery-dropdown");
 const eventHub = document.querySelector(".container");
 
 eventHub.addEventListener("click", (event) => {
-  console.log("event", event.target.state);
+  
 
   if (event.target.id.startsWith("eatery")) {
     const [prefix, eateryId, state] = event.target.id.split("--");
@@ -22,7 +22,7 @@ eventHub.addEventListener("click", (event) => {
 
 const render = (eateryCollection) => {
   contentTarget.innerHTML += `
-    <div class="dropdown eaterySelect">
+    <div class="dropdown eaterySelect" id="eateryDrop">
  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
     Select An Eatery
   </button>
@@ -45,18 +45,7 @@ ${eateryCollection
 
 
 
-eventHub.addEventListener("parkId", (e) => {
-  let state = e.detail.states;
 
-  getEateries(state).then(() => {
-    const eateries = useEateries();
-    eateries.find((state) => {
-      if (state === eateries.state) {
-      }
-      renderDropdown(eateries);
-    });
-  });
-});
 
 export const eaterySelect = () => {
   getEateries().then(() => {
