@@ -1,24 +1,24 @@
 import { useEateries, getEateries } from "./EateryProvider.js";
 
-const contentTarget = document.querySelector(".eatery-card");
+const contentTarget = document.querySelector(".dropdown-container");
 const eventHub = document.querySelector(".container");
 
-let eateryObj;
-eventHub.addEventListener("ParkID", (event) => {
-  if (event.target.state === `${eateryState}`) {
-    let eateryObj = event.target.businessName }
-    console.log("eatery", eateryObj)
-      return eateryObj
-  })
-//     const customEvent = new CustomEvent("eateryChosen", {
-//       detail: {
-//         eateryThatWasChosen: event.target.value,
-//       },
-//     });
+eventHub.addEventListener("click", event => {
+  
+  console.log("event", event.target.state)
+  
+  if (event.target.id.startsWith("eatery")) {
+    const [prefix, eateryId, state] = event.target.id.split("--")
+    const customEvent = new CustomEvent("eateryChosen", {
+          detail: {
+              eateryThatWasChosen: state,
+              eateryId
+          }
+      })
 
-//     eventHub.dispatchEvent(customEvent);
-//   }
-// });
+      eventHub.dispatchEvent(customEvent)
+  }
+})
 
 const render = eateryCollection => {
     contentTarget.innerHTML += `
@@ -35,8 +35,8 @@ ${
     eateryCollection.map(eateryObj => {
       let eateryPlace = eateryObj.businessName
       let eateryState = eateryObj.state
-      let eateryID = eateryObj.Id
-        return `<li><a class="dropdown-item id=${eateryID}>${eateryPlace} ${eateryState}</a></li> `
+      let eateryID = eateryObj.id
+        return `<li><a class="dropdown-item id="eatery--${eateryID}--${eateryState}">${eateryPlace} ${eateryState}</a></li> `
     }).join("")
       
 }
