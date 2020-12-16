@@ -34,7 +34,7 @@ const render = (attractionCollection) => {
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 Select an Attraction...
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul class="dropdown-menu attraction-dropdown" aria-labelledby="dropdownMenuButton">
                 ${attractionCollection.map(
                     (attraction) => `
                 <li><a class="dropdown-item" href="#" id="attraction--${attraction.id}--${attraction.state}">${attraction.name}</a></li>`
