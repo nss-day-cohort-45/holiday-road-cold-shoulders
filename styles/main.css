@@ -15,3 +15,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 /* .weatherCard {
     border: black solid 2px;
 } */
+
+.dropdown-menu {
+    overflow-y: auto;
+    height: 20em;
+}
+
+.splide__slide__container > img {
+    height: 100%;
+    border: black 1px solid;
+}

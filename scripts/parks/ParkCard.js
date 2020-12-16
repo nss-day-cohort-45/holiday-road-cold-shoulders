@@ -8,6 +8,13 @@ eventHub.addEventListener("parkId", (e) => {
   const parks = useParks();
   const matchingPark = parks.find((park) => park.id === e.detail.id);
   render(matchingPark);
+  new Splide("#image-slider", {
+    trimSpace: true,
+    rewind: true,
+    heightRatio: 0.25,
+    autoWidth: true,
+    gap: '2em',
+  }).mount();
 });
 
 export const parksList = () => {
@@ -21,4 +28,4 @@ const render = (park) => {
   parkCardElement.innerHTML = parkHTML(park);
 };
 
-// TODO need to create default 
+// TODO need to create default
