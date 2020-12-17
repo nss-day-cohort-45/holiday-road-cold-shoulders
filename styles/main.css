@@ -70,9 +70,15 @@
 
 .parksDialog-list > li {
   width: 50%;
-  min-width: 15em;
+  min-width: 13em;
 }
 
 .isHidden {
   display: none;
+}
+
+.parkModalAddress {
+  margin-left: 20px;
+  padding: 10px;  
+  border: black 1px solid;
 }
