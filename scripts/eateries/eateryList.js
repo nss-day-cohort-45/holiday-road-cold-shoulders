@@ -6,22 +6,24 @@ const eventHub = document.querySelector(".container");
 
 eventHub.addEventListener("eateryChosen", (event) => {
   const allEateries = useEateries();
-  const eaterySelected = parseInt(event.detail.eateryThatWasChosen)
+  const eaterySelected = parseInt(event.detail.eateryThatWasChosen);
   const matchingEatery = allEateries.find(
     (eatery) => eatery.id === eaterySelected
   );
-  console.log("match", matchingEatery);
+
   render(matchingEatery);
 });
 
 const render = (place) => {
   contentTarget.innerHTML = eateries(place);
+
+//   document.getElementById("btn").disabled = false;
 };
 
 // let allEateries = []
-export const eateryList = () => {
-  getEateries().then(() => {
-    const allEateries = useEateries();
-    render(allEateries);
-  });
-};
+// export const eateryList = () => {
+//   getEateries().then(() => {
+//     const allEateries = useEateries();
+//     render(allEateries);
+//   });
+// };

@@ -1,9 +1,9 @@
 export const AttractionHTML = (attractionObj) => {
     return `
     <div class="card">
-        <div class="card-header">
+        <h3 class="card-header">
             Attraction
-        </div>
+        </h3>
         <div class="card-body">
             <h5 class="card-title">${attractionObj.name}</h5>
             <p class="card-text">${attractionObj.description}</p>
