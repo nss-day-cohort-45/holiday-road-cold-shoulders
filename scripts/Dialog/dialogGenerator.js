@@ -10,30 +10,47 @@ eventHub.addEventListener("eateryDetail", e => {
     // Grab the zipcode from the customEvent object and split it since more than one is passed
     let eateries = useEateries()
     let eatery = eateries.find( (eatery) => eatery.id === e.detail.id)
-    render(eatery)
+    let type = 'Eatery'
+    render(eatery, type)
 });
 
 eventHub.addEventListener("attDetailClicked", e => {
 
     // Grab the zipcode from the customEvent object and split it since more than one is passed
     let attractions = useAttractions()
-    let attraction = attractions.find( (attraction) => attraction.id === e.detail.id)
-    render(attraction)
+    let attraction = attractions.find( (attraction) => attraction.id === e.detail.attractionID)
+    let type = 'Attraction'
+    render(attraction, type)
 });
 
-export const render = (object) => {
+export const render = (object, type) => {
     const titleContainer = document.querySelector('.modal-title')  
     const bodyContainer = document.querySelector('.modal-body')
-    const bodyAccessible = object.ameneties.wheelchairAccessible ? "✅" : "🚫";
-    const bodyWifi = object.ameneties.wifi ? "✅" : "🚫"
+    
+    if (type === 'Eatery') {
+        const bodyAccessible = object.ameneties.wheelchairAccessible ? "✅" : "🚫";
+        const bodyWifi = object.ameneties.wifi ? "✅" : "🚫"
 
-    titleContainer.innerHTML = `
-    ${object.businessName}
-    `
-    bodyContainer.innerHTML = `
-    <p>Wheelchair Acessibile: ${bodyAccessible}</p>
-    <p>Wifi: ${bodyWifi}</p>
-    `
+        titleContainer.innerHTML = `
+        ${object.businessName}
+        `
+        bodyContainer.innerHTML = `
+        <p>Wheelchair Acessibile: ${bodyAccessible}</p>
+        <p>Wifi: ${bodyWifi}</p>
+        `
+    } else if (type === 'Attraction') {
+        const souvenirs = object.ameneties.souvenirs ? "✅" : "🚫";
+        const restrooms = object.ameneties.restrooms ? "✅" : "🚫"
+        console.log(souvenirs)
+        console.log(restrooms)
+        titleContainer.innerHTML = `
+        ${object.name}
+        `
+        bodyContainer.innerHTML = `
+        <p>Souvenirs: ${souvenirs}</p>
+        <p>Restrooms: ${restrooms}</p>
+        `
+    }
 }
 
 export const getModal = () => {
