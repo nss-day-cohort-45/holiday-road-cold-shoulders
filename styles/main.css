@@ -45,3 +45,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 .eaterySelect {
     order: 1;
 }
+
+.isHidden {
+    display: none;
+}
