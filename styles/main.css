@@ -1,15 +1,32 @@
 .weatherBG {
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e4f5fc+0,bfe8f9+27,9fd8ef+59,2ab0ed+100 */
-background: #e4f5fc; /* Old browsers */
-background: -moz-linear-gradient(top,  #e4f5fc 0%, #bfe8f9 27%, #9fd8ef 59%, #2ab0ed 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #e4f5fc 0%,#bfe8f9 27%,#9fd8ef 59%,#2ab0ed 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #e4f5fc 0%,#bfe8f9 27%,#9fd8ef 59%,#2ab0ed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-9 */
-
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e4f5fc+0,bfe8f9+27,9fd8ef+59,2ab0ed+100 */
+  background: #e4f5fc; /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    #e4f5fc 0%,
+    #bfe8f9 27%,
+    #9fd8ef 59%,
+    #2ab0ed 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    #e4f5fc 0%,
+    #bfe8f9 27%,
+    #9fd8ef 59%,
+    #2ab0ed 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #e4f5fc 0%,
+    #bfe8f9 27%,
+    #9fd8ef 59%,
+    #2ab0ed 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-9 */
 }
 
 .weatherIcon {
-    width: 60%;
+  width: 60%;
 }
 
 /* .weatherCard {
@@ -18,44 +35,44 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 
 /* limits height of dropdown to not be longer than the page. */
 .dropdown-menu {
-    overflow-y: auto;
-    height: 20em;
+  overflow-y: auto;
+  height: 20em;
 }
 
 /* image slideshow styling so fit images as all same height */
 .splide__slide__container > img {
-    height: 100%;
-    border: black 1px solid;
+  height: 100%;
+  border: black 1px solid;
 }
 
 .dropdown-container {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
 }
 
 .parkSelect {
-    order: -1;
+  order: -1;
 }
 
 .attractionSelect {
-    order: 0;
+  order: 0;
 }
 
 .eaterySelect {
-    order: 1;
+  order: 1;
 }
 
 .parksDialog-list {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .parksDialog-list > li {
-    width: 50%;
-    min-width: 15em;
+  width: 50%;
+  min-width: 15em;
 }
 
 .isHidden {
-    display: none;
+  display: none;
 }
