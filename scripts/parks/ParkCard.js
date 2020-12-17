@@ -1,3 +1,4 @@
+import { parksDialog } from "./ParkDialog.js";
 import { parkHTML } from "./ParkHTML.js";
 import { getParks, useParks } from "./ParkProvider.js";
 
@@ -13,11 +14,11 @@ eventHub.addEventListener("parkId", (e) => {
     rewind: true,
     heightRatio: 0.25,
     autoWidth: true,
-    gap: '2em',
+    gap: "2em",
   }).mount();
 });
 
-export const parksList = () => {
+const parksList = () => {
   getParks().then(() => {
     let parks = useParks();
     render(parks);
@@ -25,7 +26,7 @@ export const parksList = () => {
 };
 
 const render = (park) => {
-  parkCardElement.innerHTML = parkHTML(park);
+  parkCardElement.innerHTML = `${parkHTML(park)} ${parksDialog()}`;
 };
 
 // TODO need to create default
