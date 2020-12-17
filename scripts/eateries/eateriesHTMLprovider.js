@@ -13,16 +13,14 @@ export const eateries = (eatery) => {
         eatery.ameneties.wheelchairAccessible ? "✅" : "🚫"
       }</p>
       <p> Wifi Access: ${eatery.ameneties.wifi ? "✅" : "🚫"}</p> 
-      <a href="#" class="btn btn-secondary" id-"eateryDetail">Details</a>
+      <button type="button" class="btn btn-outline-secondary" id="eateryModal" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button> 
     </div>
   </div>
     `;
 };
 
 eventHub.addEventListener("click", (clickEvent) => {
-  // const bodyWheelchair = event.target.ameneties.wheelchairAccessible;
-  // const bodyWifi = event.target.ameneties.wifi;
-  if (clickEvent.target.id === "eateryDetail") {
+  if (clickEvent.target.id === "eateryModal") {
     const bodyAccessible = eatery.ameneties.wheelchairAccessible ? "✅" : "🚫";
     const bodyWifi = eatery.ameneties.wifi ? "✅" : "🚫";
 
