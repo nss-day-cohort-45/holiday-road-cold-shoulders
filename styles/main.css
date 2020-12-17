@@ -55,3 +55,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
     width: 50%;
     min-width: 15em;
 }
+
+.isHidden {
+    display: none;
+}
