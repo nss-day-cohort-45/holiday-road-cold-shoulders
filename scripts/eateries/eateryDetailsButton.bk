@@ -1,0 +1,33 @@
+// import { getEateries, useEateries } from "./EateryProvider.js";
+
+// const eventHub = document.querySelector(".container");
+
+// eventHub.addEventListener "eateryDetailClicked", event => {
+// if (event.target.id.startsWith("eatery")) {
+//   const bodyWheelchair = event.target.ameneties.wheelchairAccessible;
+//   const bodyWifi = event.target.ameneties.wifi;
+//   if (eatery.ameneties.wheelchairAccessible === true) {
+//     let bodyAccessible = "Yes";
+//   } else {
+//     let bodyAccessible = "No";
+//   }
+//   return bodyAccessible;
+//   if (eatery.ameneties.wifi === true) {
+//     let bodyWifi = "Yes";
+//   } else {
+//     let bodyWifi = "No";
+//   }
+//   return bodyWifi;
+//   let bodyStuff = `<p>${eatery.ameneties.wheelchairAccessible} ${bodyAccessible}</p>
+//                   <p>${eatery.ameneties.wifi} ${bodyWifi}</p>`;
+//   return bodyStuff;
+//   const customEvent = new CustomEvent("eateryDetail", {
+//     detail: {
+//       title: event.target.businessName,
+//       body: bodyStuff,
+      
+//     } console.log("event", customEvent)
+//   });
+
+//   eventHub.dispatchEvent(customEvent);
+// }}
