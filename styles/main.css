@@ -54,4 +54,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 .parksDialog-list > li {
     width: 50%;
     min-width: 15em;
+
+.isHidden {
+    display: none;
 }
