@@ -7,12 +7,14 @@ import "./attractions/AttractionCard.js";
 import "./attractions/AttractionFilter.js";
 import "./weather/weatherList.js";
 import "./eateries/eateryList.js";
-import "./eateries/eateryFilter.js"
+import "./eateries/eateryFilter.js";
 import { getModal } from "./Dialog/dialogGenerator.js";
 import { getEateries } from "./eateries/EateryProvider.js";
+import { showSaveButton } from "./saveItineraries/showSaveButton.js";
 
 parkSelect();
 AttractionSelect();
 eaterySelect();
 parksDialog();
-getEateries().then(getModal)
+getEateries().then(getModal);
+showSaveButton();

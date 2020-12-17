@@ -9,7 +9,7 @@ export const AttractionHTML = (attractionObj) => {
             Attraction
         </h3>
         <div class="card-body">
-            <h5 class="card-title">${attractionObj.name}</h5>
+            <h5 class="card-title" id="attractionName">${attractionObj.name}</h5>
             <p class="card-text">${attractionObj.description}</p>
             <button type="button" class="btn btn-outline-secondary" id="attractionModal--${attractionObj.id}" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
         </div>

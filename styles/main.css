@@ -60,3 +60,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 .isHidden {
     display: none;
 }
+
+.save-card {
+    width: 17%;
+    margin-left: 40%;
+    margin-top: 2rem;
+}
+
+.save-btn {
+    margin-left: 28%;
+}
