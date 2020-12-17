@@ -2,12 +2,12 @@ const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.dialog')
 
 
-eventHub.addEventListener("theirEventName", e => {
+eventHub.addEventListener("eateryDetail", e => {
 
     // Grab the zipcode from the customEvent object and split it since more than one is passed
     let title = e.detail.title
     let body = e.detail.body
-    
+    console.log('I hear it!')
     render(title, body)
 });
 
@@ -31,5 +31,5 @@ export const render = (title, body) => {
 </div>
     `
     
-    document.getElementById("btnModal").click()
+    // document.getElementById("btnModal").click()
 }
