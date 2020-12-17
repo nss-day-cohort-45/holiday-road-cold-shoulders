@@ -54,15 +54,19 @@ eventHub.addEventListener("parkDetailsClicked", (e) => {
   parksDialog.showModal();
 });
 
+/* TODO current button won't click at all. When I move it outside the <div> it will click but with an error.
+  ParkDialog.js:8 Uncaught TypeError: parksDialog.close is not a function 
+    at HTMLElement.<anonymous> (ParkDialog.js:8) */
+
 export const parksDialog = () => {
   return `
   <dialog id="parksDialog">
     <div class="modal-dialog">
       <div id="parksDialog__text" class="modal-content"></div>
       <div class="modal-footer">
-        <button type="button" id="closeDialog" class="btn btn-outline-secondary">close</button>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeDialog">Close</button>
       </div>
-    </div>
+      </div>
   </dialog>
   `;
 };
