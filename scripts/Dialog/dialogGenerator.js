@@ -1,4 +1,5 @@
 import { useEateries } from '../eateries/EateryProvider.js'
+import { useAttractions } from '../attractions/AttractionProvider.js'
 
 const eventHub = document.querySelector('.container')
 const modalContainer = document.querySelector('.dialog')
