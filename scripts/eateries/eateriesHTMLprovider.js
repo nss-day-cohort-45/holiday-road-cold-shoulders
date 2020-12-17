@@ -21,20 +21,20 @@ export const eateries = (eatery) => {
 
 eventHub.addEventListener("click", (clickEvent) => {
   if (clickEvent.target.id === "eateryModal") {
-    const bodyAccessible = eatery.ameneties.wheelchairAccessible ? "✅" : "🚫";
-    const bodyWifi = eatery.ameneties.wifi ? "✅" : "🚫";
+    const bodyAccessible = clickEvent.ameneties.wheelchairAccessible ? "✅" : "🚫";
+    const bodyWifi = clickEvent.ameneties.wifi ? "✅" : "🚫";
 
-    let bodyStuff = `<p>${eatery.ameneties.wheelchairAccessible} ${bodyAccessible}</p>
-                    <p>${eatery.ameneties.wifi} ${bodyWifi}</p>`;
+    let bodyStuff = `<p>${clickEvent.ameneties.wheelchairAccessible} ${bodyAccessible}</p>
+                    <p>${clickEvent.ameneties.wifi} ${bodyWifi}</p>`;
 
     const customEvent = new CustomEvent("eateryDetail", {
       detail: {
-        title: event.target.businessName,
+        title: clickEvent.target.businessName,
         body: bodyStuff,
       },
     });
 
     eventHub.dispatchEvent(customEvent);
-    console.log("event", customEvent);
+    
   }
 });
