@@ -27,9 +27,7 @@ const render = (eateryCollection) => {
     Select An Eatery
   </button>
  <ul class="dropdown-menu eatery-dropdown" aria-labelledby="dropdownMenuButton">
-<li><a class="dropdown-item" href="#">
 
-</a></li>
 
 ${eateryCollection
   .map((eateryObj) => {

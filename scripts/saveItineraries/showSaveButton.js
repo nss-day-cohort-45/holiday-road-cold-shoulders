@@ -6,24 +6,45 @@
 const contentTarget = document.querySelector(".save-button");
 const eventHub = document.querySelector(".container");
 
+
+let itineraryObj = {
+    eateryId : "",
+    parkId : "",
+    attractionId : ""
+};
+
+eventHub.addEventListener("eateryChosen", (event) => {
+    
+    itineraryObj.eateryId = parseInt(event.detail.eateryThatWasChosen);
+    
+    
+});
+
+eventHub.addEventListener("parkId", (event) => {
+    
+    itineraryObj.parkId = event.detail.id;
+    
+    
+});
+
+eventHub.addEventListener("attractionChosen", (event) => {
+    
+    itineraryObj.attractionId = parseInt(event.detail.attractionThatWasChosen);
+    
+    
+});
+
+
+
 eventHub.addEventListener("click", (clickEvent) => {
 if (clickEvent.target.id === "saveItinerary") {
-    let park = document.querySelector("card-title");
-    let attraction = document.querySelector("#attractionName");
-    let eatery = document.querySelector("#eateryName");
+    
 
-    if (park.value && attraction.value && eatery.value !== "") {
-    const newItinerary = {
-        park: park.value,
-        attraction: attraction.value,
-        eatery: eatery.value,
-        date: date.now(),
-    };
-    saveItinerary(newItinerary);
-    park.value = "";
-    attraction.value = "";
-    eatery.value = "";
-    }
+    if (itineraryObj.eateryId && itineraryObj.parkId && itineraryObj.attractionId !== "") {
+
+    saveItinerary(itineraryObj);
+    
+} else {window.alert("choose something, monster.")}
 }
 });
 
