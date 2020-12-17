@@ -24,7 +24,7 @@ export const AttractionHTML = (attractionObj) => {
             const [prefix, attractionID] = event.target.id.split("--")
             const customEvent = new CustomEvent("attDetailClicked", {
                 detail: {
-                    attractionID: attractionID
+                    attractionID: parseInt(attractionID)
                 }
             })
             eventHub.dispatchEvent(customEvent)
