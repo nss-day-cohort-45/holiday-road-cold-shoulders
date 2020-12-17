@@ -19,22 +19,37 @@ eventHub.addEventListener("parkDetailsClicked", (e) => {
   dialogText.innerHTML = `
     <div class="modal-header">  
       <h5 class="modal-title">${clickedPark.fullName}</h5>
+      <div>${clickedPark.addresses
+        .map((address) => {
+          if (address.type === "Physical")
+            return `
+            <div>${address.line1} ${address.city},</div>
+            <div>${address.stateCode}, ${address.postalCode}</div>`;
+        })
+        .join(" ")}
+      </div>
     </div>
     <div class="modal-body">
       <p>${clickedPark.description}</p>
       <h6>Activities</h6>
       <ul class="parksDialog-list">
-        ${clickedPark.activities.map((park) => `<li>${park.name}</li>`).join(" ")}
+        ${clickedPark.activities
+          .map((park) => `<li>${park.name}</li>`)
+          .join(" ")}
       </ul>
       <h6>Cost</h6>
-      ${clickedPark.entranceFees.map(
-        (fees) => `
+      ${clickedPark.entranceFees
+        .map(
+          (fees) => `
       <div>${fees.title}</div>
-      <div>Cost: ${fees.cost}</div>
+      <div>Cost: $${fees.cost}</div>
       <div>${fees.description}</div>
-    </div>
-    `
-      ).join(" ")}`;
+      <br>
+      `
+        )
+        .join(" ")}
+      </div>
+      `;
 
   parksDialog.showModal();
 });
@@ -45,7 +60,7 @@ export const parksDialog = () => {
     <div class="modal-dialog">
       <div id="parksDialog__text" class="modal-content"></div>
       <div class="modal-footer">
-        <button id="closeDialog" type="button" class="btn btn-outline-secondary">close</button>
+        <button type="button" id="closeDialog" class="btn btn-outline-secondary">close</button>
       </div>
     </div>
   </dialog>
