@@ -42,7 +42,7 @@ export const parkHTML = (park) => {
       <p class="card-text"><small class="text-muted"><small></p>
       <button type="button" id="parkDetail--${
         park.parkCode
-      }" class="btn btn-outline-secondary data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
+      }" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#parkModal">Details</button>
     </div>
   </div>
   `;
