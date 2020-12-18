@@ -1,7 +1,4 @@
-
-
-
-//import for save function here
+import { saveItineraries } from "../saveItineraries.js"
 
 const contentTarget = document.querySelector(".save-button");
 const eventHub = document.querySelector(".container");
@@ -42,7 +39,7 @@ if (clickEvent.target.id === "saveItinerary") {
 
     if (itineraryObj.eateryId && itineraryObj.parkId && itineraryObj.attractionId !== "") {
 
-    saveItinerary(itineraryObj);
+    saveItineraries(itineraryObj);
     
 } else {window.alert("choose something, monster.")}
 }

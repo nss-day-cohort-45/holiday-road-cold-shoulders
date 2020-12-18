@@ -1,4 +1,3 @@
-import { parksDialog } from "./ParkDialog.js";
 import { parkHTML } from "./ParkHTML.js";
 import { getParks, useParks } from "./ParkProvider.js";
 
@@ -26,7 +25,7 @@ const parksList = () => {
 };
 
 const render = (park) => {
-  parkCardElement.innerHTML = `${parkHTML(park)} ${parksDialog()}`;
+  parkCardElement.innerHTML = parkHTML(park);
 };
 
 // TODO need to create default

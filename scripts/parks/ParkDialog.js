@@ -1,25 +1,23 @@
 import { useParks } from "./ParkProvider.js";
 
 const eventHub = document.querySelector(".container");
+const modalContainer = document.querySelector(".parkDialog");
 // const dialogClose = document.querySelector("#closeDialog")
 
-eventHub.addEventListener("click", (event) => {
-  if (event.target.id === "closeDialog") {
-    parksDialog.close();
-  }
-});
-
 eventHub.addEventListener("parkDetailsClicked", (e) => {
-  const parksDialog = document.querySelector("#parksDialog");
-  const dialogText = document.querySelector("#parksDialog__text");
   const clickedPark = useParks().find(
     (park) => park.parkCode === e.detail.parkId
   );
+  render(clickedPark);
+});
 
-  dialogText.innerHTML = `
-    <div class="modal-header">  
-      <h5 class="modal-title">${clickedPark.fullName}</h5>
-      <div>${clickedPark.addresses
+const render = (clickedPark) => {
+  const parksHeaderDialog = document.querySelector(".parkModal-header");
+  const parksBodyDialog = document.querySelector(".parkModal-body");
+
+  parksHeaderDialog.innerHTML = `      
+      <h5 class="modal-title" id="parkModalLabel">${clickedPark.fullName}</h5>
+      <div class="parkModalAddress">${clickedPark.addresses
         .map((address) => {
           if (address.type === "Physical")
             return `
@@ -28,8 +26,11 @@ eventHub.addEventListener("parkDetailsClicked", (e) => {
         })
         .join(" ")}
       </div>
-    </div>
-    <div class="modal-body">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>`;
+
+  parksBodyDialog.innerHTML = ` 
+    
+    
       <p>${clickedPark.description}</p>
       <h6>Activities</h6>
       <ul class="parksDialog-list">
@@ -48,25 +49,26 @@ eventHub.addEventListener("parkDetailsClicked", (e) => {
       `
         )
         .join(" ")}
-      </div>
+      
       `;
+};
 
-  parksDialog.showModal();
-});
-
-/* TODO current button won't click at all. When I move it outside the <div> it will click but with an error.
-  ParkDialog.js:8 Uncaught TypeError: parksDialog.close is not a function 
-    at HTMLElement.<anonymous> (ParkDialog.js:8) */
-
-export const parksDialog = () => {
-  return `
-  <dialog id="parksDialog">
-    <div class="modal-dialog">
-      <div id="parksDialog__text" class="modal-content"></div>
+export const getParksModal = () => {
+  modalContainer.innerHTML = `
+  <div class="modal fade" id="parkModal" tabindex="-1" aria-labelledby="parkModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header parkModal-header">
+        
+      </div>
+      <div class="modal-body parkModal-body">
+        
+      </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeDialog">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
-      </div>
-  </dialog>
+    </div>
+  </div>
+</div>
   `;
 };
